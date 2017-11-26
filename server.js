@@ -5,13 +5,15 @@ var express = require('express'),
   Product = require('./api/models/productModel'), //created model loading here
   Category = require('./api/models/categoryModel'), //created model loading here
   bodyParser = require('body-parser'),
-  passport = require('passport'),
   session = require('express-session'),
-  validator = require('express-validator');
+  validator = require('express-validator'),
+  jwt = require('jsonwebtoken'),
+  morgan = require('morgan'); 
 
 var productRoutes = require('./api/routes/productRoutes');
 var categoryRoutes = require('./api/routes/categoryRoutes');
 
+var userRoutes = require('./api/routes/userRoutes');
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -23,6 +25,8 @@ app.use(bodyParser.json());
 
 productRoutes(app)
 categoryRoutes(app)
+userRoutes(app)
+
 
 app.listen(port);
 
@@ -33,4 +37,4 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('Rental RESTful API server started on: ' + port);
