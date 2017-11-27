@@ -17,7 +17,10 @@ var userRoutes = require('./api/routes/userRoutes');
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Renterdb'); 
+
+var mongoDB = process.env.MONGODB_URI 
+
+mongoose.connect(mongoDB);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
