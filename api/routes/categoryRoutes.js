@@ -2,7 +2,6 @@
 module.exports = function(app) {
   var Category = require('../controllers/categoryController');
 
-  // todoList Routes
   app.route('/categories')
     .get(Category.list_all_categories)
     .post(Category.add_new_category);

@@ -9,12 +9,13 @@ exports.list_all_categories = function(req, res) {
   Category.find({}, function(err, category) {
     if (err)
       res.send(err);
-    res.json(category);
+    res.status(200).json({
+      message: "Successfully Saved",
+      success: 1,
+      category: category
+    })
   });
 };
-
-
-
 
 exports.add_new_category = function(req, res) {
   var new_category = new Category(req.body);

@@ -8,12 +8,13 @@ exports.list_all_products = function(req, res) {
   Product.find({}, function(err, product) {
     if (err)
       res.send(err);
-    res.json(product);
+    res.status(200).json({
+      message: "Successfully Saved",
+      success: 1,
+      product: product
+    })
   });
 };
-
-
-
 
 exports.add_new_product = function(req, res) {
   var new_product = new Product(req.body);

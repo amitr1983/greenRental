@@ -4,6 +4,9 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Product = require('./api/models/productModel'), //created model loading here
   Category = require('./api/models/categoryModel'), //created model loading here
+  Payment = require('./api/models/paymentModel'), //created model loading here
+  Feedback = require('./api/models/feedbackModel'), //created model loading here
+  Comment = require('./api/models/commentModel'), //created model loading here
   bodyParser = require('body-parser'),
   session = require('express-session'),
   validator = require('express-validator'),
@@ -12,13 +15,17 @@ var express = require('express'),
 
 var productRoutes = require('./api/routes/productRoutes');
 var categoryRoutes = require('./api/routes/categoryRoutes');
-
+var cartRoutes = require('./api/routes/cartRoutes');
 var userRoutes = require('./api/routes/userRoutes');
+var paymentRoutes = require('./api/routes/paymentRoutes');
+var commentRoutes = require('./api/routes/commentRoutes');
+var feedbackRoutes = require('./api/routes/feedbackRoutes');
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 
-var mongoDB = process.env.MONGODB_URI 
+var mongoDB = "mongodb://localhost/Renterdb"
+// var mongoDB = process.env.MONGODB_URI
 
 mongoose.connect(mongoDB);
 
@@ -29,7 +36,10 @@ app.use(bodyParser.json());
 productRoutes(app)
 categoryRoutes(app)
 userRoutes(app)
-
+cartRoutes(app)
+paymentRoutes(app)
+feedbackRoutes(app)
+commentRoutes(app)
 
 app.listen(port);
 

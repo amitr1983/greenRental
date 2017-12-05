@@ -3,22 +3,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var CartSchema = new Schema({
-    
-  price: {
-    type: Number,
-    required: true
-  },
-  productId: {
+var PaymentSchema = new Schema({
+  name: {
     type: String,
-    required: true
   },
-  total_price: {
-    type: Number,
-  },
-  quantity: {
+  card: {
     type: Number,
     required: true
+  },
+  valid: {
+    type: Date,
+  },
+  amount: {
+    type: Number,
+  },
+  email: {
+    type: String,
   },
   createdAt: {
     type: Date,
@@ -26,4 +26,4 @@ var CartSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Cart', CartSchema);
+module.exports = mongoose.model('Payments', PaymentSchema);

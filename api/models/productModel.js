@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 
 
 var ProductSchema = new Schema({
-  name: {
+  productname: {
     type: String,
     required: true
   },
-  description: {
+  productdescription: {
     type: String,
     required: true
   },

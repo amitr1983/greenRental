@@ -11,7 +11,8 @@ const userSchema = new Schema({
     address: String,
     city: String,
     state: String,
-    zip: Number
+    zip: Number,
+    usertype: String
 });
 
 userSchema.pre('save', function (next) {
