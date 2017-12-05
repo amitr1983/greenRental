@@ -20,6 +20,9 @@ var PaymentSchema = new Schema({
   email: {
     type: String,
   },
+  productname: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now

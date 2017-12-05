@@ -9,7 +9,11 @@ exports.list_all_payments = function(req, res) {
   Payment.find({}, function(err, payment) {
     if (err)
       res.send(err);
-    res.json(payment);
+    res.status(200).json({
+      message: "Successfully Saved",
+      success: 1,
+      payment: payment
+    })
   });
 };
 
@@ -19,7 +23,7 @@ exports.add_new_payment = function(req, res) {
     if (err)
       res.send(err);
     res.status(200).json({
-      message: "Successfully Saved",
+      message: "Successfully Added",
       success: 1,
       payment: payment
     })
