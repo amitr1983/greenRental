@@ -9,16 +9,13 @@ var OrderSchema = new Schema({
     required: true
   },
   productdescription: {
-    type: String,
-    required: true
+    type: String
   },
   price: {
-    type: Number,
-    required: true
+    type: Number
   },
   quantity: {
-    type: Number,
-    required: true
+    type: Number
   },
   imagePath: {
     type: String
@@ -38,6 +35,13 @@ var OrderSchema = new Schema({
   email: { 
     type: String,
     ref: 'Category' 
+  },
+  cardname: {
+    type: String,
+  },
+  cardnumber: {
+    type: Number,
+    required: true
   }
 });
 

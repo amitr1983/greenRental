@@ -8,7 +8,12 @@ function tokenForUser(user) {
 }
 
 exports.signin = function (req, res, next) {
-    res.send({token: tokenForUser(req.user)});
+    res.status(200).json({
+      message: "Successful",
+      token: tokenForUser(req.user),
+      success: 1,
+      user: req.user
+    })
 }
 
 exports.signup = function (req, res, next) {
@@ -20,6 +25,7 @@ exports.signup = function (req, res, next) {
     const state = req.body.state;
     const city = req.body.city;
     const zip = req.body.zip;
+    const usertype = req.body.usertype
 
     if (!email || !password) {
         return res.status(422).send({error: 'You must provide email and password'});
@@ -40,7 +46,8 @@ exports.signup = function (req, res, next) {
             address: address,
             city: city,
             state: state,
-            zip: zip
+            zip: zip,
+            usertype: usertype
         });
 
         user.save(function(err){
