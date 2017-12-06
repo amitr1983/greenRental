@@ -55,4 +55,4 @@ app.use(function(req, res, next) {
 
 
 
-console.log('Rental RESTful API server started on: ' + port);
+console.log('Rental Application RESTful API server started on: ' + port);
