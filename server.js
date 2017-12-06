@@ -53,8 +53,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-const all_routes = require('express-list-endpoints');
-console.log(all_routes(app));
 
 
 console.log('Rental RESTful API server started on: ' + port);
